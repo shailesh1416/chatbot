@@ -1,0 +1,223 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: auto;
+    height: 100vh;
+    background-color: rgb(210, 162, 244);
+    padding: 5px;
+    border-radius: 10px;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.info{
+    width: inherit;
+    height: 82vh;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.history{
+    width: inherit;
+    height: 98vh;
+    background-color: rgb(255, 255, 255);
+    width: 250px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.chat-area{
+    min-width: 400px;
+}
+
+.sidebar-title{
+    padding: 5px 10px;
+    background-color: blueviolet;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 5px;
+}
+
+.side-list{
+    margin-top: 8px;
+}
+
+.list{
+    list-style: none;
+}
+
+.list li{
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: rgb(215, 172, 255);
+    cursor: pointer;
+}
+
+.current-chat{
+    background-color: rgb(139, 53, 220);
+}
+
+.input-error{
+    border: 5px dotted red;
+    background-color: rgb(255, 222, 222);
+}
+
+/* media query */
+
+@media screen and (max-width:480px) {
+    html{
+        font-size: 0.8rem;
+    }
+
+    main{
+        width:100%;
+    }
+}
+
+.question-list{
+    display: flex;
+    justify-content: left;
+}
+.answer-list{
+    display: flex;
+    justify-content: right;
+}
+
+.message{
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    margin-top: 10px;
+    max-width: 250px;
+
+}
+
+.question-list-item{
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+.answer-list-item{
+    background-color: rgb(208, 208, 208);
+}
+
+.bottom_div{
+    height: 15vh;
+   width: 100%;
+   background-color: rgb(234, 234, 234);
+   padding: 10px;
+   border-radius: 10px;
+}
+
+
+input[type=text],textarea,button{
+    width: 100%;
+    height: 2rem;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.bg-color-primary{
+    background-color: blueviolet;
+}
+
+.bg-color-success{
+    background-color: rgb(14, 144, 75);
+    color: white;
+}
+
+.text-primary{
+    color: rgb(83, 18, 143);
+}
+
+
+.mt-2{
+    margin-top: 5px;
+}
+
+/* =========font size style============= */
+
+#page-title{
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    color: rgb(10, 221, 56);
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#chat-form{
+    display: none;
+}
+
+#chat-title{
+    margin-top: 10px;
+    background-color: rgb(226, 122, 240);
+    width: 100%;
+    border: 1px solid black;
+}
+/* =======error============ */
+
+.error{
+    color: rgb(214, 51, 51);
+    font-size: 1.2rem;
+    padding: 5px;
+    width: 100%;position: relative;
+    top: -100px;
+}
+
+.tip-left{
+    background-color: blueviolet;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(80deg);
+    position: relative;
+    top: 15px;
+    left: -5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+
+
+}
+
+.tip-right{
+    background-color: blueviolet;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-80deg);
+    position: relative;
+    top: 15px;
+    left: -5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
