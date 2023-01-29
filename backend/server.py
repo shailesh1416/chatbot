@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import sqlite3
-from db import get_all_keys,get_response,saveChatId,saveChat,getChatHistory,saveTitle
+from db import get_all_keys,get_response,saveChatId,saveChat,getChatHistory,saveTitle,displayChatDetails
 import uuid
 
 app = Flask(__name__)
@@ -61,6 +61,16 @@ def getChats():
     # global user
     history = getChatHistory(user)
     response = {"history":history}
+    response = jsonify(response)
+    response.headers.add('Access-Control-Allow-Origin', '*') 
+    return response
+
+@app.route('/displayChat', methods=['GET'])
+def displayChat():
+    chatId = request.args.get("chat_id")
+    # global user
+    chatDetails = displayChatDetails(chatId)
+    response = {"chatDetails":chatDetails}
     response = jsonify(response)
     response.headers.add('Access-Control-Allow-Origin', '*') 
     return response

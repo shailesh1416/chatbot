@@ -67,3 +67,19 @@ def getChatHistory(userId):
       print("err",e)
       conn.close()
       return False
+
+      
+
+def displayChatDetails(chatId):
+   try:
+      conn = sqlite3.connect('chat.db')
+      result=conn.execute("SELECT chatid,request,reply,timestamp from chatdetails where chatid=? ",(chatId,))
+      chatDetails =[]
+      for chatid,request,reply,timestamp in result:  
+         chatDetails.append({'id':chatid,'request':request,'reply':reply,'timestamp':timestamp})
+      conn.close()
+      return chatDetails
+   except Exception as e:
+      print("err",e)
+      conn.close()
+      return False

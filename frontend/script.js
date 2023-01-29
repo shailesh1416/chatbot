@@ -99,7 +99,7 @@ submit_btn.addEventListener('click',(e)=>{
     e.preventDefault()
     text = input_box.value.trim()
     if(text.length <1){
-        input_box_error.innerHTML = " <b>⚠️Please type something and then click submit<b>"
+        input_box_error.innerHTML = "<b>⚠️Please type something and then click submit<b>"
             setTimeout(() => {
                 input_box_error.innerHTML = ""
             }, 2000);
@@ -153,5 +153,17 @@ document.addEventListener('focusout',(e)=>{
         saveChatTitle(t,chatId)
         e.target.parentNode.innerText = t
     }
+})
+
+
+document.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('chat-item')){
+        chatId = e.target.getAttribute('id')
+        fetch(`http://127.0.0.1:5000/displayChat?chat_id=${chatId}`)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.chatDetails)
+        }).catch(err=>{return `ERR: ${err}`})
+        }
 })
 
