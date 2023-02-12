@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../authenticaion.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="authentication">
+        <div id="login-form" class="form " >
+            <div class="mb-3 centre-all item-column-centre">
+                <h2 class="mb-2">Welcome, Please Login</h2>
+                <p>Log in with your OpenAI account to continue</p>
+            </div>
+            <form >
+                <div class="mb-3">
+                    <label for="email">Email Id</label>
+                    <input type="email" class="form-control" style="margin-top: 5px;" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="mb-1">Password</label>
+                    <input type="password" class="form-control" style="margin-top: 5px;" required>
+                </div>  
+                <div class="button-group item-column-centre">
+                    <button class="btn mb-3">Login</button>
+                    <p>Don't have Account?. Please <span id="register-link" class="link">Click here</span> to create account</p>
+                </div>
+            </form>
+        </div>
+        <div id="register-form" class="form " style="display: none;">
+            <div class="mb-3 centre-all item-column-centre">
+                <h1 class="mb-2">Create Your Account</h1>
+                <p>Register with your Email Id to use Chat Bot</p>
+            </div>
+            <form  >
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" style="margin-top: 5px;" placeholder="Name">
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email Id</label>
+                    <input type="email" id="email" class="form-control" style="margin-top: 5px;" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="mb-1">Password</label>
+                    <input type="password" id="password" class="form-control" style="margin-top: 5px;">
+                </div>  
+                <div class="button-group item-column-centre">
+                    <!-- <button class="btn">Login</button> -->
+                    <button class="btn mb-3" id="register-btn" style="margin-left: 10px;">Signup</button>
+                    <p>Already have Account?. The please <span id="login-link" class="link">Login</span> to continue</p>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+<script src="../authenticaion.js"></script>
+</body>
+</html>

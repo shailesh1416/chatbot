@@ -83,3 +83,20 @@ def displayChatDetails(chatId):
       print("err",e)
       conn.close()
       return False
+
+
+
+def registerUser(email,password):
+   try:
+      conn = sqlite3.connect('chat.db')
+      # check if user already exist---> Pick here
+      query = conn.execute("")
+      # result=conn.execute("INSERT INTO chatdetails (chatid, request,reply,timestamp) values(?,?,?,?)",(chatid,request,reply,str(datetime.datetime.now().timestamp())))
+      print(result.lastrowid)
+      conn.commit()
+      conn.close()
+      return True 
+   except Exception as e:
+      print("err",e)
+      conn.close()
+      return False

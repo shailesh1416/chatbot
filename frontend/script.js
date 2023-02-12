@@ -8,8 +8,6 @@ const chat_form = document.getElementById('chat-form')
 
 
 
-
-
 var input_box_error = document.getElementById('input_box_error')
 var counter = 1
 getChatHistory()
@@ -21,8 +19,6 @@ function createName() {
             chatItem.setAttribute("id",localStorage.getItem('chat_id'))
             chatItem.classList.add('chat-item','current-chat')
             chatItem.innerHTML = 'New Chat'
-            console.log(chatItem)
-            console.log(chatlist)
             chatlist.insertBefore(chatItem,firstChild)
 }
 
@@ -35,7 +31,6 @@ function getReply() {
         answer.innerHTML = `<div id='answer${counter}' class='answer-list'><div class='answer-list-item message'>${data.answer}</div></div>`
         info_box.appendChild(answer)
         var chatHistory = document.getElementById(`answer${counter}`);
-        console.log(chatHistory)
         chatHistory.scrollIntoView({block: "end"});
         }
     );
@@ -50,7 +45,6 @@ function createId(callback,callback2){
     .then((response) => response.json())
     .then((data) => {
         id2 =data.id
-        console.log(id2)
         // document.cookie =JSON.stringify({chat_id:id2})
         localStorage.setItem('chat_id', id2)
         callback(id2)
@@ -71,10 +65,8 @@ function getChatHistory(){
             if(item.title!==null){
                 chatItem.innerHTML = item.title
             }else{
-                // console.log(item.timestamp)
                 chatItem.innerHTML = "No name"
             }
-            // console.log(chatItem)
             chatlist.appendChild(chatItem)
             })
         
@@ -162,7 +154,24 @@ document.addEventListener('click',(e)=>{
         fetch(`http://127.0.0.1:5000/displayChat?chat_id=${chatId}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data.chatDetails)
+            chat = data.chatDetails
+            localStorage.setItem('chatId',chatId)
+            
+            var info_box = document.getElementById('info_box')
+            info_box.innerHTML = ""
+            ctr = 1
+            chat.forEach((item)=>{
+                answer = document.createElement("div")
+                answer.innerHTML = `<div id='answer${ctr}' class='answer-list'><div class='answer-list-item message'>${item.reply}</div></div>`
+                question = document.createElement("div")
+                question.innerHTML = `<div id='question${ctr}'  class='question-list'><div class='question-list-item message'>${item.request}</div></div>`
+                info_box.appendChild(question)
+                info_box.appendChild(answer)
+                ctr = ctr+1
+                })
+            document.getElementById(`answer${ctr-1}`).scrollIntoView({block: "end"});
+            counter = ctr
+            
         }).catch(err=>{return `ERR: ${err}`})
         }
 })

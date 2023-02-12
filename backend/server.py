@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import sqlite3
-from db import get_all_keys,get_response,saveChatId,saveChat,getChatHistory,saveTitle,displayChatDetails
+from db import get_all_keys,get_response,saveChatId,saveChat,getChatHistory,saveTitle,displayChatDetails,registerUser
 import uuid
 
 app = Flask(__name__)
@@ -75,8 +75,21 @@ def displayChat():
     response.headers.add('Access-Control-Allow-Origin', '*') 
     return response
 
+# register
+@app.route('/register', methods=['GET'])
+def register():
+    name = request.args.get("name")
+    email = request.args.get("email")
+    password = request.args.get("password")
+    print(name,email,password)
+    response = registerUser(email,password)
+    response = {"status":True,'message':"User registered successfully"}
+    response = jsonify(response)
+    response.headers.add('Access-Control-Allow-Origin', '*') 
+    return response
+
 if __name__ == "__main__":
     print("Starting Python Flask Server For Tally academy Bot")
-    app.run(port=5000)
+    app.run(port=5000,debug=True)
 
 
